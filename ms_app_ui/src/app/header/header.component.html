@@ -1,0 +1,32 @@
+
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-between align-items-center py-3 border-bottom">
+        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+            <img src="assets/resources/ms_logo.png" width="60" height="60" alt="Enable body scrolling" class="img-clickable">
+        </a>
+        <ul class="nav nav-pills">
+            <!-- <li class="nav-item">
+                <a href="#" class="nav-link" [ngClass]="{'active': activeLink === 'home'}" (click)="setActiveLink('home')" routerLink="home" aria-current="page">Home</a>
+              </li> -->
+              <li class="nav-item">
+                <a href="#" class="nav-link" [ngClass]="{'active': activeLink === 'login'}" (click)="setActiveLink('login')" routerLink="login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" [ngClass]="{'active': activeLink === 'about'}" (click)="setActiveLink('about')">About</a>
+              </li>
+        </ul>
+    </header>
+</div>
+
+
+
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="width: 20%;">
+  <div class="offcanvas-header">
+    <img src="assets/resources/ms_logo.png" width="60" height="60" style="margin-left: 15px;"> 
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <app-sidebar></app-sidebar>
+  </div>
+</div>

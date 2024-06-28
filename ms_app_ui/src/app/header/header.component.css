@@ -1,0 +1,10 @@
+.container{
+    margin-left: 0!important;
+}
+
+.img-clickable {
+    cursor: pointer;
+    /* Add any other styles you need, like size or margins */
+    margin-left: 15px;
+  }
+  

@@ -1,0 +1,6 @@
+com\kelvin\ms_app\controller\DemoController.class
+com\kelvin\ms_app\model\TokenRequest.class
+com\kelvin\ms_app\model\LoginResponse.class
+com\kelvin\ms_app\model\Response.class
+com\kelvin\ms_app\model\LoginRequest.class
+com\kelvin\ms_app\service\AccountService.class

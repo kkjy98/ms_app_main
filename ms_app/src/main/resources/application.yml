@@ -1,0 +1,54 @@
+spring:
+  application:
+      name: ms_app
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/ms_app
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+  datasource:
+    hikari:
+      connectionTimeout: 2000
+      maximumPoolSize: 5
+
+    url: jdbc:postgresql://localhost:5432/ms_appv2
+    username: postgres
+    password: admin
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+application:
+  endpoints:
+    keycloak:
+      base-url: http://localhost:8080
+  url:
+    keycloak:
+      ms_app:
+        users: ${application.endpoints.keycloak.base-url}/admin/realms/ms_app/users
+        user: ${application.endpoints.keycloak.base-url}/admin/realms/ms_app/users/{id}
+        user-reset-password: ${application.endpoints.keycloak.base-url}/admin/realms/ms_app/users/{id}/reset-password
+
+server:
+  port: 8081
+
+logging:
+  level:
+    ROOT: INFO
+    org.hibernate.SQL: DEBUG
+    #org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+
+jwt:
+  auth:
+    converter:
+      resource-id: ms_app_restapi
+      principle-attribute: preferred_username
+
+api-logging:
+  request-response-filter.enabled: true
+  url-patterns: "/*"
+
