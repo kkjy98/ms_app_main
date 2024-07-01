@@ -14,6 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent {
 
   isLoading = false;
+  isError = false;
   loginForm!: FormGroup;
   result!:any;
   resultCode!: number;
@@ -36,20 +37,25 @@ export class LoginComponent {
 
   async submit() {
     this.isLoading = true;
+    this.isError = false;
     this.user.username = this.loginForm.controls['email'].value;
     this.user.password = this.loginForm.controls['password'].value;
     await lastValueFrom(this.apiservice.login(this.user)).then((res:any) => {
-      this.result = res;
+      this.result=res;
       //get data & set on localStorage
       localStorage.setItem('access_token', this.result.access_token);
 
       //get result code
+      console.log("Response");
       this.resultCode = this.result.result_code;
       console.log(this.resultCode);
       console.log(this.result);
       console.log(this.isTokenExpired(this.result.access_token));
 
     }).catch(err => {
+      console.log("Error");
+      console.log(err);
+      this.resultCode = err.error.result_code;
        this.handleError(err);
     });
 
@@ -58,6 +64,10 @@ export class LoginComponent {
         this.isLoading = false;
         this.router.navigate(['/home']);
         return;
+      } else if (this.resultCode==401){
+        this.isLoading = false;
+        this.isError = true;
+
       }
     
   }

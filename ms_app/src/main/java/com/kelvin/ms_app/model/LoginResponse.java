@@ -7,6 +7,7 @@ public class LoginResponse {
     private String expires_in;
     private String refresh_expires_in;
     private String result_code;
+    private String error_message;
 
     public String getAccess_token() {
         return access_token;
@@ -47,5 +48,13 @@ public class LoginResponse {
 
     public void setResult_code(String result_code) {
         this.result_code = result_code;
+    }
+
+    public String getError_message() {
+        return error_message;
+    }
+
+    public void setError_message(String error_message) {
+        this.error_message = error_message;
     }
 }

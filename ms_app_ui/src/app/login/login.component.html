@@ -1,13 +1,17 @@
 <main class="form-signin w-100 m-auto">
+    <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Wrong Username and Password</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
       <h1 class="h3 mb-3 fw-normal">Sign In</h1>
   
       <div class="form-floating">
-        <input type="text" class="form-control" formControlName="email" id="floatingInput" placeholder="name@example.com">
+        <input autocomplete="off" class="form-control" formControlName="email" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
+        <input autocomplete="off" type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
   
@@ -18,7 +22,7 @@
         </label>
         <br>
         <label class="form-check-label" for="flexCheckDefault">
-         <a style="color:maroon" routerLink="/register"> Dont have an account?</a>
+         <a style="color:maroon" routerLink="/sign-up"> Dont have an account?</a>
         </label>
       </div>
       <button class="btn btn-primary w-100 py-2" type="submit"><a style="color: white; text-decoration: none;">Sign in</a></button>

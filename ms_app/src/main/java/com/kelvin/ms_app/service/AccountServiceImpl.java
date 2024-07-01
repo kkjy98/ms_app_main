@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -49,23 +51,44 @@ public class AccountServiceImpl implements AccountService {
         map.add("username", loginRequest.getUsername());
         map.add("password", loginRequest.getPassword());
 
-        HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(map, headers);
-        ResponseEntity<LoginResponse> response = restTemplate.postForEntity(
-                "http://localhost:8080/realms/ms_app/protocol/openid-connect/token",
-                httpEntity,
-                LoginResponse.class
-        );
+        try {
+            HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(map, headers);
+            ResponseEntity<LoginResponse> response = restTemplate.postForEntity(
+                    "http://localhost:8080/realms/ms_app/protocol/openid-connect/token",
+                    httpEntity,
+                    LoginResponse.class
+            );
 
-        LoginResponse loginResponse = response.getBody();
-        if (response.getStatusCode() == HttpStatus.OK && loginResponse != null) {
-            loginResponse.setResult_code("1000");
-            return new ResponseEntity<>(loginResponse, HttpStatus.CREATED);
-        } else {
-            if (loginResponse != null) {
-                loginResponse.setResult_code("404");
+            LoginResponse loginResponse = response.getBody();
+            if (response.getStatusCode() == HttpStatus.OK && loginResponse != null) {
+                loginResponse.setResult_code("1000");
+                return new ResponseEntity<>(loginResponse, HttpStatus.CREATED);
+            } else {
+                if (loginResponse == null) {
+                    loginResponse = new LoginResponse();
+                }
+
+                if (response.getStatusCode() == HttpStatus.UNAUTHORIZED) {
+                    loginResponse.setResult_code("401");
+                    // Optionally, you can set additional error information in loginResponse here
+                } else {
+                    loginResponse.setResult_code("404");
+                }
+
+                return new ResponseEntity<>(loginResponse, response.getStatusCode());
             }
-            return new ResponseEntity<>(loginResponse, response.getStatusCode());
+        } catch (HttpClientErrorException | HttpServerErrorException ex) {
+            LoginResponse loginResponse = new LoginResponse();
+            loginResponse.setResult_code(String.valueOf(ex.getStatusCode().value()));
+            loginResponse.setError_message(ex.getResponseBodyAsString());
+            return new ResponseEntity<>(loginResponse, ex.getStatusCode());
+        } catch (Exception ex) {
+            LoginResponse loginResponse = new LoginResponse();
+            loginResponse.setResult_code("500");
+            loginResponse.setError_message("Internal Server Error");
+            return new ResponseEntity<>(loginResponse, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
     }
 
     @Override
