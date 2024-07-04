@@ -127,25 +127,33 @@ public class AccountServiceImpl implements AccountService {
         try {
             accountRepository.save(account);
 
+            account.setPassword(CryptUtil.decrypt(account.getPassword()));
             // Create response object
             ApiResponse response = new ApiResponse("Account created successfully", "success", account);
             ObjectResponse<Account> createResUserResponse = createAccountInKeycloak(signUpRequest, account,
                     accountRepository, rest);
 
             if (!createResUserResponse.isSuccess()) {
-                logger.error("registerAccounnt - Unable to create account \n");
+                logger.error("registerAccount - Unable to create account \n");
                 rest.setSuccess(false);
                 rest.setMessage("Create account failed.");
                 return new ResponseEntity<>(rest, HttpStatus.CREATED);
             }
-            // Return response entity with HTTP status code 201 (Created)
-            return new ResponseEntity<>(response, HttpStatus.CREATED);
+
+            if (createResUserResponse.isSuccess()) {
+                // Return response entity with HTTP status code 201 (Created)
+                return new ResponseEntity<>(response, HttpStatus.CREATED);
+            }
 
         } catch (Exception e) {
             // Handle errors and create an error response
             ApiResponse response = new ApiResponse("Account creation failed", "error", null);
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
+        // Default return statement in case all above conditions fail
+        ApiResponse response = new ApiResponse("Account creation failed unexpectedly", "error", null);
+        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 
