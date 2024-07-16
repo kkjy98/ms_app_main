@@ -44,6 +44,7 @@ export class LoginComponent {
       this.result=res;
       //get data & set on localStorage
       localStorage.setItem('access_token', this.result.access_token);
+      localStorage.setItem('username',this.result.username);
 
       //get result code
       console.log("Response");

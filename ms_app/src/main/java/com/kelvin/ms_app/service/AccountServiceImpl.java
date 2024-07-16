@@ -16,6 +16,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
@@ -39,17 +40,23 @@ public class AccountServiceImpl implements AccountService {
     @Qualifier("requestResponseLoggingInterceptor")
     private RestTemplate restTemplate;
 
+    @Autowired
+    private SecurityUtil securityUtil;
+
     @Override
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        //Encrypt the password
+        String password_encrypt = CryptUtil.encrypt(loginRequest.getPassword());
+
 
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
         map.add("grant_type", "password");
         map.add("client_id", "ms_app_restapi");
         map.add("client_secret", "zFe0biM6ys52wnMSOoWgMW35q55KbGX0");
         map.add("username", loginRequest.getUsername());
-        map.add("password", loginRequest.getPassword());
+        map.add("password", password_encrypt);
 
         try {
             HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(map, headers);
@@ -62,6 +69,7 @@ public class AccountServiceImpl implements AccountService {
             LoginResponse loginResponse = response.getBody();
             if (response.getStatusCode() == HttpStatus.OK && loginResponse != null) {
                 loginResponse.setResult_code("1000");
+                loginResponse.setUsername(securityUtil.getUsernameByToken(loginResponse.getAccess_token()));
                 return new ResponseEntity<>(loginResponse, HttpStatus.CREATED);
             } else {
                 if (loginResponse == null) {
@@ -127,7 +135,6 @@ public class AccountServiceImpl implements AccountService {
         try {
             accountRepository.save(account);
 
-            account.setPassword(CryptUtil.decrypt(account.getPassword()));
             // Create response object
             ApiResponse response = new ApiResponse("Account created successfully", "success", account);
             ObjectResponse<Account> createResUserResponse = createAccountInKeycloak(signUpRequest, account,
@@ -154,6 +161,58 @@ public class AccountServiceImpl implements AccountService {
         // Default return statement in case all above conditions fail
         ApiResponse response = new ApiResponse("Account creation failed unexpectedly", "error", null);
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    public Account getMsAccByUsername(String username) {
+        Account msAcc = accountRepository.findByUsername(username).orElse(null);
+        return msAcc;
+    }
+
+    @Override
+    public ObjectResponse<OAuth2IdpTokenBasicInfo> userRefreshSignIn(String username) {
+        ObjectResponse<OAuth2IdpTokenBasicInfo> objectResponse = new ObjectResponse<>();
+
+        Account msAcc = getMsAccByUsername(username);
+        try {
+            if (ObjectUtils.isEmpty(msAcc)) {
+                logger.error("dssUserRefreshSignIn - No user record \n");
+                objectResponse.setSuccess(false);
+                objectResponse.setMessage("User not found.");
+                return objectResponse;
+            }else {
+                objectResponse.setSuccess(true);
+            }
+
+            ObjectResponse<OAuth2IdpToken> tokenResponse = keycloakService.getMsUser(username, msAcc.getPassword());
+
+            if (!tokenResponse.isSuccess()) {
+                objectResponse.setSuccess(false);
+                objectResponse.setMessage("Invalid email address or password");
+                return objectResponse;
+            }
+
+            OAuth2IdpToken tokenObject = tokenResponse.getData();
+
+            //communicate with plan microservices
+            //String planName = getUserPlan(dsAcc.getId());
+
+            OAuth2IdpTokenBasicInfo tokenBasicInfo = new OAuth2IdpTokenBasicInfo();
+            tokenBasicInfo.setAccessToken(tokenObject.getAccessToken());
+            tokenBasicInfo.setExpiresIn(tokenObject.getExpiresIn());
+            tokenBasicInfo.setAccNo(msAcc.getAccNo());
+            tokenBasicInfo.setUsername(msAcc.getUsername());
+            tokenBasicInfo.setEmail(msAcc.getEmail());
+            //tokenBasicInfo.setPlanName(planName);
+
+            objectResponse.setSuccess(true);
+            objectResponse.setData(tokenBasicInfo);
+
+        } catch (Exception e) {
+            logger.error("dssUserRefreshSignIn error", e);
+            objectResponse.setMessage("Unknown error occurred.");
+        }
+
+        return objectResponse;
     }
 
 
@@ -203,7 +262,7 @@ public class AccountServiceImpl implements AccountService {
                     acc.getEmail(), keycloakResUserId);
 
             // set user level access to keycloak resuser's custom attribute
-            ObjectResponse<UserRepresentation> keycloakResUserObjResponse = keycloakService.getMsUser(keycloakResUserId);
+            //ObjectResponse<UserRepresentation> keycloakResUserObjResponse = keycloakService.getMsUser(keycloakResUserId);
 
             // success created
             objectResponse.setSuccess(true);

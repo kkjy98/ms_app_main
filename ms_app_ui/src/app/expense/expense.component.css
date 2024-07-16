@@ -1,0 +1,14 @@
+.container  {
+    height: 100vh; /* Full viewport height */
+
+}
+.row {
+    flex: 1;
+}
+
+.expense-list {
+    max-height: 300px; /* Set a maximum height */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+    padding: 10px; /* Optional: Add padding */
+}

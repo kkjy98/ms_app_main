@@ -8,6 +8,15 @@ public class LoginResponse {
     private String refresh_expires_in;
     private String result_code;
     private String error_message;
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getAccess_token() {
         return access_token;

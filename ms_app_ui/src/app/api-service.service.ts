@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from './model/user';
+import { Expense } from './model/expense';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class ApiServiceService {
 
   baseUrl: string = "http://localhost:8081/api/v1";
   user:User = new User();
+  expense:Expense = new Expense();
   
 
   constructor(
@@ -35,10 +37,23 @@ export class ApiServiceService {
     return httpHeaders;
   }
   signUp(user: Object): Observable<Object> {
-  	return this.httpClient.post(`${this.baseUrl}/sign-up`, user);
+  	return this.httpClient.post(`${this.baseUrl}/acc/signup`, user);
   }
 
   login(user: Object): Observable<Object> {
     return this.httpClient.post(`${this.baseUrl}/acc/login`, user);
   }
+
+  refreshLogin() {
+    return this.httpClient.post(`${this.baseUrl}/sign-in/refresh`, {}, this.getHeaders());
+  }
+
+  addExp(expsense: Object): Observable<Object> {
+    return this.httpClient.post(`${this.baseUrl}/exp/addExp`, expsense, this.getHeaders());
+  }
+
+  getExp(username:any) : Observable<Object>{
+    return this.httpClient.get(`${this.baseUrl}/exp/getExp?username=`+username, this.getHeaders());
+  }
+  
 }

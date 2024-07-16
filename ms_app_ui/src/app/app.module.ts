@@ -10,6 +10,13 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Required for Angular Material
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -19,15 +26,25 @@ import { SignupComponent } from './signup/signup.component';
     SidebarComponent,
     LoginComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    ExpenseComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule 
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

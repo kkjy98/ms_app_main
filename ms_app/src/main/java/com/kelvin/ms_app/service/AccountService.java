@@ -8,4 +8,5 @@ public interface AccountService {
     public ResponseEntity<LoginResponse> login(LoginRequest loginRequest);
     public ResponseEntity<Response> logout(TokenRequest request);
     public ResponseEntity<?> signup(SignUpRequest signUpRequest);
+    public ObjectResponse<OAuth2IdpTokenBasicInfo> userRefreshSignIn(String username);
 }

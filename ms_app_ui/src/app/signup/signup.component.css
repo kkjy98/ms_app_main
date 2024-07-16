@@ -1,9 +1,41 @@
-.card-registration .select-input.form-control[readonly]:not([disabled]) {
-    font-size: 1rem;
-    line-height: 2.15;
-    padding-left: .75em;
-    padding-right: .75em;
-    }
-    .card-registration .select-arrow {
-    top: 13px;
-    }
+
+
+.form-signin {
+  max-width: 475px;
+  padding: 1rem;
+  margin: auto;
+}
+
+/* 
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+} */
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-floating{
+    margin-bottom: 10px !important;
+}
+
+.reg_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 475px;
+}
+
+.spinner_cont{
+    display: inline;
+    top: 80px;
+    position: relative;
+}

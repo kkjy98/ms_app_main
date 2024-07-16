@@ -59,3 +59,11 @@ body {
     border-radius: .375rem;
     opacity: var(--bs-btn-close-opacity);
 }
+
+.form-select:focus {
+    border-color: #dee2e6 !important;
+    outline: 0;
+    box-shadow: none !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

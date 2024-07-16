@@ -1,5 +1,6 @@
 package com.kelvin.ms_app.service;
 
+import com.kelvin.ms_app.model.OAuth2IdpToken;
 import com.kelvin.ms_app.model.ObjectResponse;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.keycloak.representations.idm.CredentialRepresentation;
@@ -117,9 +118,29 @@ public class KeycloakServiceImpl implements KeycloakService{
     }
 
     @Override
-    public ObjectResponse<UserRepresentation> getMsUser(String userRepresentationId) {
-        return null;
+    public ObjectResponse<OAuth2IdpToken> getMsUser(String username, String password) {
+        ObjectResponse<OAuth2IdpToken> objectResponse = new ObjectResponse<>();
+
+        try {
+
+            OAuth2IdpToken tokenResponse = keycloakTokenService.getDssRealmUserToken(username, password);
+
+            if(ObjectUtils.isEmpty(tokenResponse)) {
+                objectResponse.setSuccess(false);
+                objectResponse.setMessage("Unable to get res realm user access token");
+                return objectResponse;
+            }
+
+            objectResponse.setSuccess(true);
+            objectResponse.setData(tokenResponse);
+
+        } catch (Exception e) {
+            logger.error("getResUserToken error", e);
+        }
+
+        return objectResponse;
     }
+
 
     @Override
     public ObjectResponse<Void> deleteMsUser(String userRepresentationId) {
