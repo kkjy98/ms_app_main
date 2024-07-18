@@ -17,6 +17,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Required for Angular Material
 import { MatNativeDateModule } from '@angular/material/core';
+import { DataGraphComponent } from './data-graph/data-graph.component';
+import {ChartModule,AccumulationChartComponent, AccumulationChart, IAccLoadedEventArgs, AccumulationTheme, AccumulationChartAllModule, ChartAllModule} from '@syncfusion/ej2-angular-charts';
+import {GridModule} from '@syncfusion/ej2-angular-grids';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     LoginComponent,
     HomeComponent,
     SignupComponent,
-    ExpenseComponent
+    ExpenseComponent,
+    DataGraphComponent
 
   ],
   imports: [
@@ -40,10 +46,16 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    ChartModule,
+    GridModule,
+    AccumulationChartAllModule, 
+    ChartAllModule, 
+    BaseChartDirective
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]
 })

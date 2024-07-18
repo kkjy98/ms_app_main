@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { ExpenseComponent } from './expense/expense.component';
+import { DataGraphComponent } from './data-graph/data-graph.component';
 
 const routes: Routes = [
   // {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent, children: []},
       { path: 'home', component: HomeComponent ,canActivate: [authGuard], children: []},
       { path: 'exp', component: ExpenseComponent ,canActivate: [authGuard], children: []},
+      { path: 'graph', component: DataGraphComponent ,canActivate: [authGuard], children: []},
       { path: 'sign-up', component: SignupComponent, children: []}
     ]
   }

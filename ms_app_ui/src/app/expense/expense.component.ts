@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild ,EventEmitter, Output} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Expense } from '../model/expense';
 import { ApiServiceService } from '../api-service.service';
 import { lastValueFrom } from 'rxjs';
@@ -12,7 +12,10 @@ import { HttpErrorResponse } from '@angular/common/http';
  
 })
 export class ExpenseComponent {
+
   @ViewChild('expenseList') expenseList!: ElementRef;
+  @Output() formSubmitted = new EventEmitter<void>();
+
   expenseForm!: FormGroup;
   isLoading=false;
   result!:any;
@@ -28,10 +31,10 @@ export class ExpenseComponent {
     this.loadExpenses(); // Load expenses first
 
     this.expenseForm = this.fb.group({
-        amount: [''],
-        category: [''],
-        description: [''],
-        date: [''] // This will hold the selected date
+      amount: ['', Validators.required],
+      category: ['', Validators.required], // Validators.required ensures the category is not empty
+      description: [''],
+      date: ['', Validators.required] // Validators.required ensures the date is not empty
     });
 }
   async onSubmit(): Promise<void> {
@@ -46,6 +49,7 @@ export class ExpenseComponent {
         await lastValueFrom(this.apiservice.addExp(expense)).then((res: any) => {
             this.result = res;
             this.resultCode = this.result.code;
+            this.formSubmitted.emit();
             this.loadExpenses(); // Refresh the expense list only after submission
         }).catch(err => {
             this.isLoading=false;

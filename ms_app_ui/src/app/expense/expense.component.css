@@ -12,3 +12,8 @@
     border: 1px solid #ccc; /* Optional: Add a border for better visibility */
     padding: 10px; /* Optional: Add padding */
 }
+
+.error_msg{
+    margin-left: 5px;
+    font-size: small;
+}

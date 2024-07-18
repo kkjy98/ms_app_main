@@ -36,6 +36,8 @@ export class ApiServiceService {
     };
     return httpHeaders;
   }
+
+  //Account
   signUp(user: Object): Observable<Object> {
   	return this.httpClient.post(`${this.baseUrl}/acc/signup`, user);
   }
@@ -47,7 +49,7 @@ export class ApiServiceService {
   refreshLogin() {
     return this.httpClient.post(`${this.baseUrl}/sign-in/refresh`, {}, this.getHeaders());
   }
-
+  //Expense
   addExp(expsense: Object): Observable<Object> {
     return this.httpClient.post(`${this.baseUrl}/exp/addExp`, expsense, this.getHeaders());
   }
@@ -55,5 +57,9 @@ export class ApiServiceService {
   getExp(username:any) : Observable<Object>{
     return this.httpClient.get(`${this.baseUrl}/exp/getExp?username=`+username, this.getHeaders());
   }
-  
+
+  //Graph
+  getTotal(username:any) : Observable<Object>{
+    return this.httpClient.get(`${this.baseUrl}/graph/getTotalData?username=`+username, this.getHeaders());
+  }
 }

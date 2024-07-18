@@ -17,4 +17,9 @@ public interface ExpenseRepository extends JpaRepository<Expense,Long> {
     @Transactional
     @Query(value = "DELETE FROM ms_expense WHERE id = :id AND username = :username", nativeQuery = true)
     int deleteExpByIdUsername(@Param("id") Long id, @Param("username") String username);
+
+    @Query("SELECT e FROM Expense e WHERE e.username = :username ORDER BY e.date ASC")
+    List<Expense> getTotalDataSQL(@Param("username") String username);
+
 }
+
