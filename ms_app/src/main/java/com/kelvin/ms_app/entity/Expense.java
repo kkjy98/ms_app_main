@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -68,6 +70,13 @@ public class Expense {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public void setDateFromIsoString(String isoDate) {
+        ZonedDateTime zonedDateTime = ZonedDateTime.parse(isoDate);
+        // Adjust to the desired time zone, e.g., your local time zone
+        ZonedDateTime adjustedDateTime = zonedDateTime.withZoneSameInstant(ZoneId.of("Asia/Kuala_Lumpur"));
+        this.date = adjustedDateTime.toLocalDate();
     }
 
     public String getUsername() {

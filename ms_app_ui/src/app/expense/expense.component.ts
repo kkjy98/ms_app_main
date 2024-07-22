@@ -4,6 +4,8 @@ import { Expense } from '../model/expense';
 import { ApiServiceService } from '../api-service.service';
 import { lastValueFrom } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-expense',
@@ -18,13 +20,15 @@ export class ExpenseComponent {
 
   expenseForm!: FormGroup;
   isLoading=false;
+  isError=false;
   result!:any;
   resultCode!:string;
   errorMessage!: string;
   expensesList: Expense[] = [];
 
   constructor(private fb: FormBuilder,
-    private apiservice: ApiServiceService
+    private apiservice: ApiServiceService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +47,7 @@ export class ExpenseComponent {
         const expense = new Expense();
         expense.amount = this.expenseForm.get('amount')?.value;
         expense.category = this.expenseForm.get('category')?.value;
-        expense.date = this.expenseForm.get('date')?.value;
+        expense.date = this.adjustDate(this.expenseForm.get('date')?.value);
         expense.description = this.expenseForm.get('description')?.value;
 
         await lastValueFrom(this.apiservice.addExp(expense)).then((res: any) => {
@@ -59,7 +63,16 @@ export class ExpenseComponent {
             
         });
     } else {
+        this.isLoading=false;
         console.log('Form is invalid');
+    }
+
+    if(this.resultCode="1000"){
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000); 
+    }else{
+      this.isError=true;
     }
 
 }
@@ -98,6 +111,12 @@ export class ExpenseComponent {
     } catch (err) {
       console.error('Error scrolling to bottom', err);
     }
+  }
+
+  private adjustDate(date: Date): string {
+    const adjustedDate = new Date(date);
+    adjustedDate.setDate(adjustedDate.getDate() + 1);
+    return adjustedDate.toISOString().split('T')[0]; // Return date as a string in 'YYYY-MM-DD' format
   }
  
 }

@@ -35,7 +35,7 @@ body {
 .form-control:focus {
     color: var(--bs-body-color);
     background-color: var(--bs-body-bg);
-     border-color: white !important;
+     border-color: #dee2e6 !important;
     outline: 0;
     box-shadow: none !important; 
 }

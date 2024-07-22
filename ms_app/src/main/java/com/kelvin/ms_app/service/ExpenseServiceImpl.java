@@ -5,6 +5,7 @@ import com.kelvin.ms_app.model.ApiObjectResponse;
 import com.kelvin.ms_app.model.ExpenseRequest;
 import com.kelvin.ms_app.model.ObjectResponse;
 import com.kelvin.ms_app.repository.ExpenseRepository;
+import com.kelvin.ms_app.util.Common;
 import com.kelvin.ms_app.util.SecurityUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -27,6 +29,7 @@ public class ExpenseServiceImpl implements ExpenseService{
     public ResponseEntity<?> addExpRecord(ExpenseRequest expenseRequest) {
         ApiObjectResponse apiObjectResponse = new ApiObjectResponse();
         Expense expense = new Expense();
+        Common com = new Common();
 
         expense.setAmount(expenseRequest.getAmount());
         expense.setDate(expenseRequest.getDate());

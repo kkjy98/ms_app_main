@@ -2,6 +2,10 @@
 <div class="row" style="height: 70%;">
     <div class="col-4 m-3">
         <p class="p-3 fs-5 border bg-light">Expense Tracker</p>
+        <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>System Error</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
         <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
             <div class="form-floating">
               <input type="text" class="form-control" name="amount" placeholder="Amount" formControlName="amount">
@@ -45,10 +49,13 @@
             </div>
           
             <div class="row">
-              <div class="col-4">
+              <div class="col" style="display: flex;">
                 <button class="btn btn-primary mt-3" type="submit" style="display: flex;">
                   <a style="color: white; text-decoration: none;">Record</a>
                 </button>
+                <div *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" style="margin-top: 25px; margin-left: 25px;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
               </div>
             </div>
           </form>
@@ -72,7 +79,7 @@
       </div>       
     </div>
     <div class="row" style="height: 30%;">
-        <div class="col m-3">
+        <div class="col mt-3">
             <p class="p-3 fs-5 border bg-light">Data Graph</p>
             <app-data-graph [formSubmitted]="formSubmitted"></app-data-graph>
     </div>

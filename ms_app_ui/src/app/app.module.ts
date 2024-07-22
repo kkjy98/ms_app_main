@@ -22,6 +22,7 @@ import {ChartModule,AccumulationChartComponent, AccumulationChart, IAccLoadedEve
 import {GridModule} from '@syncfusion/ej2-angular-grids';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { BaseChartDirective } from 'ng2-charts';
   ],
   providers: [
     provideAnimationsAsync(),
-    provideCharts(withDefaultRegisterables())
+    provideCharts(withDefaultRegisterables()),
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

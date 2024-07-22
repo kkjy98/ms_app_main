@@ -26,18 +26,26 @@ public class GraphServiceImpl implements GraphService{
         List<Expense> expenseList = expenseRepository.getTotalDataSQL(username);
 
         MathUtil mathUtil = new MathUtil();
-        JsonObject jsonObject = new JsonObject();
-        Map<String,Double> resultMap = new HashMap<>();
-        resultMap =  mathUtil.addition(expenseList);
+        Map<String, Map<String, Double>> resultMap = mathUtil.addition(expenseList);
 
-        jsonObject.addProperty("fb",resultMap.get("fb"));
-        jsonObject.addProperty("et",resultMap.get("et"));
-        jsonObject.addProperty("hl",resultMap.get("hl"));
-        jsonObject.addProperty("tp",resultMap.get("tp"));
+        // Create the response JSON object
+        JsonObject jsonObject = new JsonObject();
+
+        for (Map.Entry<String, Map<String, Double>> entry : resultMap.entrySet()) {
+            String month = entry.getKey();
+            Map<String, Double> totals = entry.getValue();
+
+            JsonObject monthJsonObject = new JsonObject();
+            monthJsonObject.addProperty("fb", totals.get("fb"));
+            monthJsonObject.addProperty("et", totals.get("et"));
+            monthJsonObject.addProperty("hl", totals.get("hl"));
+            monthJsonObject.addProperty("tp", totals.get("tp"));
+
+            jsonObject.add(month, monthJsonObject);
+        }
 
         // Create the response object
         ObjectResponse<JsonObject> res = new ObjectResponse<>();
-        res.setSuccess(true);
         res.setData(jsonObject);
 
         return res;
