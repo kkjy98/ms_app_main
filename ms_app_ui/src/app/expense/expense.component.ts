@@ -23,6 +23,7 @@ export class ExpenseComponent {
   isError=false;
   result!:any;
   resultCode!:string;
+  deleteMessage!:any;
   errorMessage!: string;
   expensesList: Expense[] = [];
 
@@ -83,6 +84,7 @@ export class ExpenseComponent {
       console.log("Expense List:", this.expensesList);
       this.scrollToBottom();
     });
+    
   }
 
   private handleError(httpErrorResponse: HttpErrorResponse) {
@@ -118,5 +120,19 @@ export class ExpenseComponent {
     adjustedDate.setDate(adjustedDate.getDate() + 1);
     return adjustedDate.toISOString().split('T')[0]; // Return date as a string in 'YYYY-MM-DD' format
   }
- 
+
+
+  public deleteExpense(trans_id: any) {
+    console.log(localStorage.getItem("access_token"));
+    this.apiservice.delExp(trans_id).subscribe(
+      (res: any) => {
+        this.deleteMessage = res;
+        console.log(res);
+        this.loadExpenses();
+      },
+      (error) => {
+        console.error('Delete request failed', error);
+      }
+    );
+  }
 }

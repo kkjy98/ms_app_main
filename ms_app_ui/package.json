@@ -23,6 +23,7 @@
     "@syncfusion/ej2-angular-charts": "^26.1.42",
     "@syncfusion/ej2-angular-grids": "^26.1.42",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "chart.js": "^4.4.3",
     "date-fns": "^3.6.0",
     "ng2-charts": "^6.0.1",

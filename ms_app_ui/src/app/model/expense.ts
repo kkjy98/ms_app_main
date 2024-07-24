@@ -4,6 +4,7 @@ export class Expense {
     date!: string;
     description!: string;
     username!: string;
+    transc_id!:string;
 
     toString(): string {
         return "{Amount: " + this.amount + ", Category: " + this.category + ", Date: " + this.date + ", Description: " + this.description + ", Username: " + this.username + "}";
