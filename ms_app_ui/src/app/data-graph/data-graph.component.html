@@ -1,0 +1,31 @@
+<div class="graph_cont">
+    <div class="pie_cont">
+        <form [formGroup]="monthForm">
+            <select class="form-select form-select-sm mt-3" style="width: 150px;" aria-label=".form-select-sm example" formControlName="selectedMonth" (change)="onMonthChange()">
+              <option value="" disabled>Select Month</option>
+              <option *ngFor="let month of availableMonths" [value]="month">
+                {{ month }}
+              </option>
+            </select>
+          </form>    
+    <canvas #pieChartCanvas baseChart
+      [type]="'pie'"
+      [datasets]="pieChartDatasets"
+      [labels]="pieChartLabels"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins"
+      [legend]="pieChartLegend">
+    </canvas>
+    <button class="btn btn-primary w-100 py-2 m-3" (click)="savePieChart()"><a style="color: white; text-decoration: none;">Export Pie</a></button>
+      
+    </div>
+    <div class="bar_cont">
+    <canvas baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [type]="'bar'">
+    </canvas>
+    </div>
+</div>
