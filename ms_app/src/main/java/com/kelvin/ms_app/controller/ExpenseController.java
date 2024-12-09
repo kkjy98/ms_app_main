@@ -10,6 +10,7 @@ import com.kelvin.ms_app.service.KeycloakServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -51,6 +52,22 @@ public class ExpenseController {
             return ResponseEntity.badRequest().body(res);
         }
     }
+
+    @GetMapping("/getExpPage")
+    public ResponseEntity<?> getExpByUserPage(
+            @RequestParam String username,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+
+        ObjectResponse<Page<Expense>> res = expenseService.getExpRecordByUserPage(username, page, size);
+
+        if (res.isSuccess()) {
+            return ResponseEntity.ok(res);
+        } else {
+            return ResponseEntity.badRequest().body(res);
+        }
+    }
+
 
     @PostMapping("/deleteExp")
     public ResponseEntity<?> deleteExpById(@RequestParam Long id, String username) {

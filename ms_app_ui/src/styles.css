@@ -65,5 +65,15 @@ body {
     outline: 0;
     box-shadow: none !important;
 }
+
+.btn-primary{
+    background-color: #586869 !important;
+    border-color: #586869 !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: #586869 !important;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

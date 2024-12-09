@@ -11,11 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -71,6 +73,27 @@ public class ExpenseServiceImpl implements ExpenseService{
         }
         return response;
     }
+
+    public ObjectResponse<Page<Expense>> getExpRecordByUserPage(String username, int page, int size) {
+
+        ObjectResponse<Page<Expense>> response = new ObjectResponse<>();
+        try {
+            Pageable pageable = PageRequest.of(page, size);
+            Page<Expense> expensePage = expenseRepository.findByUsername(username, pageable);
+
+            response.setData(expensePage);
+            response.setSubCode("1000");
+            response.setSuccess(true);
+            response.setMessage("Get Record success");
+        } catch (Exception e) {
+            logger.error("Get record error", e);
+            response.setSuccess(false);
+            response.setMessage("Unknown error occurred.");
+            response.setSubCode("404");
+        }
+        return response;
+    }
+
 
     @Override
     public ResponseEntity<?> deleteExp(Long id, String username) {
