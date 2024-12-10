@@ -27,7 +27,7 @@ application:
     host: smtp.gmail.com
     port: 587
     username: jinyuan.khor@qiu.edu.my
-    password: 2134984778kelvinkjy
+    password: confidential
     use-tls: true
     use-ssl: false
     auth: true
