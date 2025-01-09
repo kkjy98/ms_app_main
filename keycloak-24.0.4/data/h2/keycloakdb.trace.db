@@ -1,0 +1,2720 @@
+2024-05-17 16:05:46.290549+08:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MIGRATION_MODEL" not found (this database is empty); SQL statement:
+SELECT ID, VERSION FROM MIGRATION_MODEL ORDER BY UPDATE_TIME DESC [42104-224]
+2024-05-17 16:05:47.023711+08:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOG" not found (this database is empty); SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOG [42104-224]
+2024-05-17 16:05:47.209021+08:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found (this database is empty); SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42104-224]
+2024-05-17 16:05:47.240020+08:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOG" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOG [42102-224]
+2024-06-17 14:34:50.425638+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:34:50.462714+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:34:55.716346+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:34:55.728467+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:34:55.747462+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-17 14:35:04.817270+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:35:04.826255+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:49:50.388069+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:49:50.400261+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:49:55.726371+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:49:55.739383+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:49:55.767404+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-17 14:50:04.868923+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 14:50:04.877457+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:04:50.468922+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:04:50.473047+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:04:55.744702+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:04:55.752889+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:04:55.778142+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-17 15:05:04.870224+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:05:04.882232+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:19:50.375380+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:19:50.385373+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:19:55.767712+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:19:55.776838+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:19:55.802258+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-17 15:20:04.915515+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:20:04.919515+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:34:50.396144+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:34:50.405747+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:34:55.733650+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:34:55.739645+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:34:55.755649+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-17 15:35:04.811796+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:35:04.822350+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:49:50.369464+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:49:50.380501+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:49:55.743962+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:49:55.750968+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:49:55.770970+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-17 15:50:04.857090+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 15:50:04.865483+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:04:50.385821+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:04:50.395954+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:04:55.738683+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:04:55.742724+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:05:00.829332+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:05:00.842438+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:05:00.867922+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-17 16:19:52.451479+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:19:52.461328+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:19:52.484707+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-17 16:20:02.859795+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:20:02.870789+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-17 16:20:02.892792+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-28 14:16:04.114361+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-28 14:16:09.678621+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-28 14:16:10.184274+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-06-28 14:16:11.974804+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-06-28 14:16:17.151659+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-07-20 15:44:58.035120+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-07-20 15:44:58.124662+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-07-20 15:44:58.175679+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-07-20 15:45:07.939213+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-07-20 15:45:07.970217+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-07-20 15:45:08.030943+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-07-21 12:52:01.496917+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-07-21 12:52:07.490533+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-07-21 12:52:07.501917+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-07-21 12:52:07.533525+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.FileLock.getExceptionFatal(FileLock.java:429)
+	at org.h2.store.FileLock.sleep(FileLock.java:424)
+	at org.h2.store.FileLock.lockFile(FileLock.java:334)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Error opening database: "Sleep interrupted" [8000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:516)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep0(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:509)
+	at org.h2.store.FileLock.sleep(FileLock.java:422)
+	... 17 more
+2024-07-21 12:52:13.701898+08:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more
+2024-07-21 12:52:13.713758+08:00 database: opening C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb
+org.h2.message.DbException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:168)
+	at org.h2.mvstore.db.Store.<init>(Store.java:142)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:231)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:545)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:526)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db" [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: Could not open file C:/Users/kelvin.khor/Documents/keycloak-24.0.4/data/h2/keycloakdb.mv.db [2.2.224/1]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:126)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 15 more
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:200)
+	at java.base/sun.nio.ch.FileChannelImpl.endBlocking(FileChannelImpl.java:172)
+	at java.base/sun.nio.ch.FileChannelImpl.size(FileChannelImpl.java:430)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:120)
+	... 19 more

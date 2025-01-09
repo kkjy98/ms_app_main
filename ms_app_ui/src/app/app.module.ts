@@ -24,6 +24,7 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
 import { DatePipe } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     AppComponent,

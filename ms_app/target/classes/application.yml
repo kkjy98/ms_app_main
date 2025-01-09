@@ -21,7 +21,17 @@ spring:
     hibernate:
       ddl-auto: update
 
+
 application:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: testing
+    password: testing
+    use-tls: true
+    use-ssl: false
+    auth: true
+
   endpoints:
     keycloak:
       base-url: http://localhost:8080
@@ -51,4 +61,6 @@ jwt:
 api-logging:
   request-response-filter.enabled: true
   url-patterns: "/*"
+
+
 

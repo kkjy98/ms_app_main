@@ -5,14 +5,11 @@
    -->
       
    
-    <!-- <ul class="nav nav-pills flex-column mb-auto">
+    <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link active" [ngClass]="{'active': activeLink === 'home'}" (click)="setActiveLink('home')" aria-current="page">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-          Home
-        </a>
+        <button class="btn btn-primary w-100 py-2" type="submit"><a style="color: white; text-decoration: none;">Export Transaction</a></button>
       </li>
-      <li>
+      <!-- <li>
         <a href="#" class="nav-link" [ngClass]="{'active': activeLink === 'dashboard'}" (click)="setActiveLink('dashboard')">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
           Dashboard
@@ -35,8 +32,8 @@
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
           Customers
         </a>
-      </li>
-    </ul> -->
+      </li> -->
+    </ul>
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,7 +45,7 @@
         <li><a class="dropdown-item" href="#">Settings</a></li>
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li> -->
-        <li><a class="dropdown-item"  (click)="signOut()">Sign out</a></li>       
+        <li><a class="dropdown-item"  style="cursor: pointer;" (click)="signOut()">Sign out</a></li>       
       </ul>
     </div>
   </div>
